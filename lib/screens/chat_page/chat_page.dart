@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../../models/chat.dart';
 import '../../models/message.dart';
 import '../../data/repository_provider.dart';
-import '../../data/demo_assets.dart';
 import '../../constants/app_constants.dart';
 import 'message_list.dart';
 import 'widgets/input_bar.dart';
@@ -89,7 +88,6 @@ class _ChatPageState extends State<ChatPage> {
             ),
             InputBar(
               onAttach: () async {
-                await Repo.instance.sendImage(widget.chat.id, demoImageUrl);
                 await _reload();
               },
               controller: _controller,

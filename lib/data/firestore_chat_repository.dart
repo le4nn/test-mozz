@@ -59,6 +59,18 @@ class FirestoreChatRepository implements ChatRepository {
     });
   }
 
+  Future<void> ensureChat(Chat chat) async {
+    final ref = _chatsCol.doc(chat.id);
+    final exists = await ref.get();
+    if (!exists.exists) {
+      await ref.set({
+        'title': chat.title,
+        'colorValue': chat.colorValue,
+        'createdAt': FieldValue.serverTimestamp(),
+      }, SetOptions(merge: true));
+    }
+  }
+
   Message _fromDoc(
     String chatId,
     QueryDocumentSnapshot<Map<String, dynamic>> d,

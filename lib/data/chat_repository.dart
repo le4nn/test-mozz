@@ -28,58 +28,8 @@ class InMemoryChatRepository implements ChatRepository {
   final Map<String, List<Message>> _messages = {};
 
   List<Message> _seed(String chatId, String title) {
-    final now = DateTime.now();
-    return [
-      Message(
-        id: '${chatId}_m1',
-        chatId: chatId,
-        type: MessageType.text,
-        text: 'Сделай мне кофе, пожалуйста',
-        isMe: true,
-        timestamp: now.subtract(const Duration(days: 3, hours: 1)),
-        status: MessageStatus.read,
-      ),
-      Message(
-        id: '${chatId}_m2',
-        chatId: chatId,
-        type: MessageType.text,
-        text: 'Хорошо',
-        isMe: false,
-        timestamp: now.subtract(const Duration(days: 3, hours: 1, minutes: -1)),
-        status: MessageStatus.read,
-      ),
-      Message(
-        id: '${chatId}_m3',
-        chatId: chatId,
-        type: MessageType.image,
-        imageUrl: demoImageUrl,
-        isMe: true,
-        timestamp: now.subtract(const Duration(days: 1, hours: 2)),
-        status: MessageStatus.read,
-      ),
-      Message(
-        id: '${chatId}_m4',
-        chatId: chatId,
-        type: MessageType.text,
-        text: 'Уже сделал?',
-        isMe: true,
-        timestamp: now.subtract(const Duration(hours: 5)),
-        status: MessageStatus.delivered,
-      ),
-      Message(
-        id: '${chatId}_m5',
-        chatId: chatId,
-        type: MessageType.text,
-        text: 'Мне просто срочно нужно',
-        isMe: true,
-        timestamp: now.subtract(const Duration(hours: 4, minutes: 59)),
-        status: MessageStatus.sent,
-      ),
-    ];
+    return [];
   }
-
-  static const String demoImageUrl =
-      'https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200&auto=format&fit=crop';
 
   @override
   Future<List<Chat>> getChats() async {

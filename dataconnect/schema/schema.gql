@@ -1,0 +1,67 @@
+type User @table {
+  username: String!
+  email: String!
+  createdAt: Timestamp!
+  displayName: String
+  photoUrl: String
+}
+
+type Project @table {
+  name: String!
+  createdAt: Timestamp!
+  description: String
+}
+
+type TestCase @table {
+  project: Project!
+  title: String!
+  status: String!
+  createdAt: Timestamp!
+  updatedAt: Timestamp!
+  description: String
+  priority: String
+}
+
+type TestStep @table {
+  testCase: TestCase!
+  stepNumber: Int!
+  description: String!
+  expectedResult: String!
+}
+
+type TestSuite @table {
+  project: Project!
+  name: String!
+  createdAt: Timestamp!
+  description: String
+}
+
+type TestPlan @table {
+  project: Project!
+  name: String!
+  targetBuild: String!
+  status: String!
+  createdAt: Timestamp!
+  updatedAt: Timestamp!
+  description: String
+}
+
+type TestSuiteToTestCase @table(key: ["testSuite", "testCase"]) {
+  testSuite: TestSuite!
+  testCase: TestCase!
+}
+
+type TestPlanToTestSuite @table(key: ["testPlan", "testSuite"]) {
+  testPlan: TestPlan!
+  testSuite: TestSuite!
+}
+
+type TestRun @table {
+  testPlan: TestPlan!
+  testCase: TestCase!
+  executor: User!
+  status: String!
+  executedAt: Timestamp!
+  comments: String
+  attachmentUrl: String
+}

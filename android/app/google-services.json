@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "262992470394",
+    "firebase_url": "https://final-project-18572-default-rtdb.firebaseio.com",
+    "project_id": "final-project-18572",
+    "storage_bucket": "final-project-18572.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:262992470394:android:cbdd4974ef95793cc8f6c3",
+        "android_client_info": {
+          "package_name": "com.example.mozztest"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFwAxdEKJP84OqSVBxrVp-iB4nByU0Xko"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
